@@ -1,0 +1,59 @@
+{
+  "name": "jmh-report-visualizer",
+  "version": "1.0.0",
+  "description": "A JMH Report Visualizer",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "npm run type-check && npm run test && npm run check-coverage && parcel build src/index.html --no-scope-hoist",
+    "test": "playwright test",
+    "test-debug": "playwright test --debug",
+    "check-coverage": "node check-coverage.js",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.js",
+    "format": "prettier --write \"src/**/*.{js,ts,css,html,json,md}\"",
+    "prepare": "husky install"
+  },
+  "keywords": ["jmh",
+    "benchmark",
+    "java",
+    "visualization",
+    "chartjs",
+    "report",
+    "performance"],
+  "author": "GSSwain",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^22.13.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.0",
+    "monocart-reporter": "^2.0.0",
+    "parcel": "^2.0.0",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,css,html,json,md}": "prettier --write",
+    "src/**/*.{ts,js}": "eslint --fix"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.5%"
+  ],
+  "alias": {
+    "chart.js": "chart.js/dist/chart.umd.js"
+  }
+}
