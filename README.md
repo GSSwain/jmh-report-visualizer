@@ -2,6 +2,10 @@
 
 A web-based tool for visualizing Java Microbenchmark Harness (JMH) reports. This tool allows you to easily compare benchmark results, analyze performance metrics, and gain insights into your code's performance.
 
+## Online Access
+
+You can access the tool online at [https://gsswain.com/jmh-report-visualizer](https://gsswain.com/jmh-report-visualizer).
+
 ## Features
 
 *   **Upload & Visualize:** Drag and drop your JMH JSON report files or load them directly from a GitHub Gist.
@@ -10,6 +14,40 @@ A web-based tool for visualizing Java Microbenchmark Harness (JMH) reports. This
 *   **Filtering:** Filter results by benchmark name, and parameters to focus on specific data points.
 *   **Insights:** Get automated insights into performance differences, including estimated time savings and throughput changes.
 *   **Export:** Download charts as images for use in reports or presentations.
+
+## Docker
+
+You can run the application as a containerized service.
+
+### Run from Docker Hub
+
+You can run the latest version of the application directly from Docker Hub without building it yourself:
+
+```bash
+docker run -p 8080:8080 gsswain/jmh-report-visualizer:latest
+```
+
+The application will be available at `http://localhost:8080/jmh-report-visualizer/`.
+
+### Build Locally
+
+If you prefer to build the image locally:
+
+#### Build Docker Image
+
+To build the Docker image (this will also run the build script):
+
+```bash
+npm run docker:build
+```
+
+#### Run Docker Container
+
+To run the locally built Docker container on port 8080:
+
+```bash
+npm run docker:run
+```
 
 ## Development
 
@@ -52,28 +90,6 @@ npm run build
 ```
 
 The build artifacts will be in the `dist` directory.
-
-## Docker
-
-If you prefer to run the application as a containerized service.
-
-### Build Docker Image
-
-To build the Docker image (this will also run the build script):
-
-```bash
-npm run docker:build
-```
-
-### Run Docker Container
-
-To run the Docker container on port 8080:
-
-```bash
-npm run docker:run
-```
-
-The application will be available at `http://localhost:8080/jmh-report-visualizer/`.
 
 ## Usage
 
