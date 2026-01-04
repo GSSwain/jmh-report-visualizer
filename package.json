@@ -4,8 +4,8 @@
   "description": "A JMH Report Visualizer",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "npm run type-check && npm run test && npm run check-coverage && parcel build src/index.html --no-scope-hoist",
+    "start": "parcel src/index.html --public-url /jmh-report-visualizer/",
+    "build": "npm run type-check && npm run test && npm run check-coverage && parcel build src/index.html --no-scope-hoist --public-url /jmh-report-visualizer/",
     "test": "playwright test",
     "test-debug": "playwright test --debug",
     "check-coverage": "node check-coverage.js",
@@ -14,13 +14,15 @@
     "format": "prettier --write \"src/**/*.{js,ts,css,html,json,md}\"",
     "prepare": "husky install"
   },
-  "keywords": ["jmh",
+  "keywords": [
+    "jmh",
     "benchmark",
     "java",
     "visualization",
     "chartjs",
     "report",
-    "performance"],
+    "performance"
+  ],
   "author": "GSSwain",
   "license": "GPL-3.0",
   "devDependencies": {
