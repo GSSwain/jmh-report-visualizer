@@ -11,7 +11,9 @@ A web-based tool for visualizing Java Microbenchmark Harness (JMH) reports. This
 *   **Insights:** Get automated insights into performance differences, including estimated time savings and throughput changes.
 *   **Export:** Download charts as images for use in reports or presentations.
 
-## Getting Started
+## Development
+
+If you want to contribute or run the application locally for development purposes.
 
 ### Prerequisites
 
@@ -31,9 +33,9 @@ A web-based tool for visualizing Java Microbenchmark Harness (JMH) reports. This
     npm install
     ```
 
-### Running the Application
+### Running Locally (Parcel)
 
-Start the development server:
+Start the development server with hot reloading:
 
 ```bash
 npm start
@@ -50,6 +52,28 @@ npm run build
 ```
 
 The build artifacts will be in the `dist` directory.
+
+## Docker
+
+If you prefer to run the application as a containerized service.
+
+### Build Docker Image
+
+To build the Docker image (this will also run the build script):
+
+```bash
+npm run docker:build
+```
+
+### Run Docker Container
+
+To run the Docker container on port 8080:
+
+```bash
+npm run docker:run
+```
+
+The application will be available at `http://localhost:8080/jmh-report-visualizer/`.
 
 ## Usage
 

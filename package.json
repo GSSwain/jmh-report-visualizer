@@ -5,14 +5,17 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel src/index.html --public-url /jmh-report-visualizer/",
-    "build": "npm run type-check && npm run test && npm run check-coverage && parcel build src/index.html --no-scope-hoist --public-url /jmh-report-visualizer/",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run type-check && npm run test && npm run check-coverage && parcel build src/index.html --no-scope-hoist --public-url /jmh-report-visualizer/",
     "test": "playwright test",
     "test-debug": "playwright test --debug",
     "check-coverage": "node check-coverage.js",
     "type-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts,.js",
     "format": "prettier --write \"src/**/*.{js,ts,css,html,json,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docker:build": "npm run build && docker build -t jmh-report-visualizer .",
+    "docker:run": "docker run -p 8080:8080 jmh-report-visualizer"
   },
   "keywords": [
     "jmh",
